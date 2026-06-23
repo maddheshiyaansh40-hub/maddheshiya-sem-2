@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+<body>
+
+    <script>
+        //Function:-A JavaScript function is a reusable block of code designed to perform a specific task
+
+        //normal function without para
+
+        function demo(){
+            console.log("Hello JS" );
+        }
+ demo();
+               //normal function with para
+        function demo1(text){
+            console.log("Hello " + text);
+        }
+          demo1("React");
+
+          // function with default parameters
+          function add(a,b=10){
+            console.log("addtion of two number is " + (a+b));
+          }
+          add(3);
+
+          // An anonymous function in JavaScript is a function that does not have an identifier (name) associated with it. These functions are primarily used for one-time tasks or scenarios where a function is passed as a value, such as callbacks, event handlers, or Immediately Invoked Function Expressions (IIFE)
+
+          let cal=function(){
+             var num1=5;
+             var num2=10;
+             var res=num1*num2;
+             console.log("multiply of num1 and num2 " + res );
+          }
+          cal();
+          // arrow function with multiline statement
+          //Arrow functions were introduced in ES6 as a concise alternative to traditional function expressions, using the => syntax. They are widely used in modern JavaScript, especially for short functions and callbacks.
+          let div=(x,y)=>{
+            var num1=x;
+            var num2=y;
+            var res=x/y;
+            console.log("Divison is " + res);
+          }
+          div(12,3);
+           // arrow function with single line statement
+let msg=()=>console.log("Hello ABES");
+msg();
+//callback function: A callback function is a function passed as an argument into another function. A callback function is intended to be executed later.
+
+function sub(a,b,callback){
+    var num1=a;
+    var num2=b;
+    var res=num1-num2;
+    callback(res);
+
+}
+function displayRes(res){
+    console.log("Result is " + res);
+}
+sub(13,5,displayRes);
+//callback using setTimeout API
+
+function msg1(){
+    console.log("Hello Frnd");
+}
+setTimeout(msg1,2000);
+
+// IIFE- 
+(function(a,b){
+    console.log(`First parameter ${a} and 
+    Second parameter ${b}`);
+    var res=a+b;
+    console.log(`Result is ${res}`);
+})(4,5);
+//short code using arrow function
+(msg=>console.log("Hello IIFE"))();
+
+// Promises:-A JavaScript Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. It is a core feature in modern JavaScript used to handle operations like fetching data from an API, reading files, or managing time delays in a cleaner, more readable way than traditional callbacks, avoiding "callback hell".
+
+/* A promise exists in one of three mutually exclusive states: 
+pending: The initial state; the operation is still in progress.
+fulfilled: The operation completed successfully, and a value is available (e.g., the data from an API call).
+rejected: The operation failed, and a reason (error) is available. */
+
+let promise=new Promise(function(resolve, reject){
+    let age=5;
+    if(age>=18){
+        resolve("valid age");
+    }
+    else{
+        reject("wait for next year")
+    }
+});
+// console.log(promise);
+promise.then(msg=>console.log(msg)).catch(error=>console.log(error));
+
+//async await...........async and await are modern JavaScript keywords that allow developers to write asynchronous code in a synchronous-looking, more readable style.
+//An async function always returns a JavaScript Promise.
+//The await keyword is used inside an async function to pause the execution of that function until a Promise is settled (either resolved or rejected)
+
+//https://dummyjson.com/products
+// Fetch api using async await 
+/*  async function userData() {
+    let response=await fetch('https://api.github.com/users/ersanjeevsoni');
+    let responseData=await response.json();
+    console.log(responseData);
+    // document.writeln(responseData.id);
+    // document.writeln(responseData.bio);
+ }
+ userData(); */
+
+ // error handling using try catch
+  async function userData() {
+ try{
+ let response=await fetch('https://dummyjson.com/products');
+    let responseData=await response.json();
+    console.log(responseData);
+ }
+ 
+ catch(error){
+    console.log(error);
+ }
+}
+userData();
+
+//
+//Local Storage-JavaScript localStorage is a feature that enables web applications to store simple key-value pairs locally within the user's browser with no expiration date. The data persists even after the browser is closed and reopened, making it useful for saving user preferences, form data, or application state across sessions
+
+
+let myInfo={
+    name:"John",
+    age:23,
+    mob:6986787689,
+    eMail:"john234@gmail.com"
+}
+//Convert object to string using stringify
+let myInfoData=JSON.stringify(myInfo);
+
+//set data
+localStorage.setItem('prefrence',myInfoData);
+
+// Retrieving and parsing the object back
+let getMyInfoloData=localStorage.getItem('prefrence');
+
+//parse the object
+const finalData=JSON.parse(getMyInfoloData);
+console.log(finalData.name);
+
+// Higher Order Function:-higher-order functions help make your code more reusable and modular by allowing you to work with functions like any other value.
+
+//map() filter() reduce() forEach()
+/* Array.prototype.map(): Creates a new array by applying a function to every element in the original array.
+Array.prototype.filter(): Creates a new array with only the elements that satisfy a condition defined by a callback function.
+Array.prototype.reduce(): Accumulates an array into a single value (like a sum or product) by repeatedly applying a function to each element and a running total.
+Array.prototype.forEach(): Executes a provided function once for each array element, typically for side effects like logging to the console. */
+
+let num=[3,5,6,7,8,9,2,3,5,6,8,0];
+
+// find the squre of num
+let result=num.map(n=>n*n);
+console.log(`Squre of num is ${result}`);
+//find the number greater than 3
+let result2=num.filter(n=>n>3);
+console.log(`Sorting of num array is ${result2}`);
+//find sum of num aaray
+let sum=num.reduce((total,n)=>total+n);
+console.log(`Additon of num array elements is ${sum}`);
+// find multiply of 2 of each elements of num array
+
+num.forEach((n)=>console.log(n*2))
+    </script>
+</body>
+</html>

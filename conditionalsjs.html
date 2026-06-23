@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Conditional statements in JavaScript allow a program to make decisions and execute different blocks of code based on whether a condition is true or false.
+
+        // if....Executes a block of code only if the specified condition is true.
+
+        let age=23;
+        if(age>=18){
+            console.log("valid age for vote casting!");
+        }
+        // if ..else Executes one block of code if the condition is true, and another block if it is false.
+        let myAge=45;
+        if(myAge<18){
+            console.log("wait for next year");
+        }
+        else{
+            console.log("you are eligible for voting!");
+        }
+        //switch....Evaluates an expression and executes the code block associated with a matching case value. A break statement is used to stop the execution once a match is found.
+
+        let grade="C";
+        switch(grade){
+            case'A':result="First Division";
+            break;
+            case'B':result="Second Division";
+            break;
+            case'C':result="Third Division";
+            break;
+            default:result="Fail";
+        }
+        console.log(result);
+        // if else if  else-----------Used to specify new conditions to test if the previous condition was false, allowing for multiple alternative conditions in sequence.
+
+    let marks=56;
+    if(marks>=60){
+        console.log("First Div Marks");
+    }
+    else if(marks<60 && marks>=40){
+      console.log("Seconde Div Marks");
+    }
+    else if(marks<40 && marks>=30){
+        console.log(("Third Div Marks"));
+    }
+    else{
+        console.log("Fail");
+    }
+    </script>
+    
+</body>
+</html>
