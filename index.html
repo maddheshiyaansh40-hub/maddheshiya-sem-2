@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM events</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Checker + Factorial</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
- <div class="container">
-    <h2 id="mainHeading">Welcome to JavaScript Lab</h2>
+  <main class="container">
+    <h1>Prime Checker & Factorial Calculator</h1>
+    <form id="numberForm">
+      <label for="numberInput">Enter a number:</label>
+      <input type="number" id="numberInput" name="number" min="0" required>
+      <button type="submit">Calculate</button>
+    </form>
 
-    <input type="text" id="userInput" placeholder="Enter new heading text">
-
-    <br><br>
-
-    <button id="changeTextBtn">Change Heading</button>
-    <button id="bgColorBtn">Change Background</button>
-    <button id="fontSizeBtn">Increase Font Size</button>
-    <button id="toggleBtn">Show/Hide Paragraph</button>
-    <button id="resetBtn">Reset</button>
-
-    <p id="paragraph">
-        This is a sample paragraph. JavaScript events can dynamically change content.
-    </p>
-</div>
-
-    <script src="./script.js"></script>
+    <section id="results" class="results hidden">
+      <p id="primeResult"></p>
+      <p id="factorialResult"></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
